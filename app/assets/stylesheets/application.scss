@@ -1,0 +1,12 @@
+// Custom bootstrap variables must be set or import before bootstrap itself.
+@import "variables";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+html {
+  height: 100%;
+}
+
+
+// Global layout
