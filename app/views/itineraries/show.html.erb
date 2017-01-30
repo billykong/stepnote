@@ -5,10 +5,22 @@
   <%= @itinerary.title %>
 </p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @itinerary.content %>
-</p>
+<br>
 
-<%= link_to 'Edit', edit_itinerary_path(@itinerary) %> |
-<%= link_to 'Back', itineraries_path %>
+<div class="col-xs-3 hidden-xs-down">
+	<% @events.each do |event| %>
+  	<%= render partial: 'events/event_list_item', object: event, as: 'event'%>
+	<% end %>
+</div>
+<div class="col-xs-9">
+	<div>
+		this is the detail view
+	</div>
+
+	<div class="hidden-sm-up">
+		<% @events.each do |event| %>
+			<%= render partial: 'events/event_list_item', object: event, as: 'event'%>
+		<% end %>
+	</div>
+</div>
+

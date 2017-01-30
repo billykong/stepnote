@@ -8,6 +8,7 @@ class ItinerariesController < ApplicationController
 
   # GET /itineraries/1
   def show
+    @events = Event.find(@itinerary.events_id)
   end
 
   # GET /itineraries/new
