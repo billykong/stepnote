@@ -11,3 +11,32 @@ html {
 
 
 // Global layout
+.masthead {
+  margin-bottom: 10px;
+  text-shadow: $carousel-text-shadow;
+
+  nav {
+    transition-duration: 1s;
+    background-color: rgba(0,119,190,0.5);
+
+    .nav-link {
+      color: white !important;
+    }
+
+    .dropdown-menu {
+      left: auto;
+      right: 0;
+      text-shadow: none;
+    }
+  }
+
+  .btn {
+    text-shadow: none;
+  }
+
+  a.navbar-brand {
+    img {
+      height: 30px;
+    }
+  }
+}

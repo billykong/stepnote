@@ -13,6 +13,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @itinerary = Itinerary.find(params[:itinerary_id])
   end
 
   # GET /events/1/edit
@@ -22,9 +23,9 @@ class EventsController < ApplicationController
   # POST /events
   def create
     @event = Event.new(event_params)
-
+    @itinerary = Itinerary.find(event_params[:itinerary_id])
     if @event.save
-      redirect_to @event, notice: 'Event was successfully created.'
+      redirect_to @itinerary, notice: 'Event was successfully created.'
     else
       render :new
     end
@@ -53,6 +54,6 @@ class EventsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def event_params
-      params.require(:event).permit(:title, :content, :entity, :schedule, :lat, :lng)
+      params.require(:event).permit(:title, :content, :thumbnail_url, :entity, :schedule, :lat, :lng, :itinerary_id)
     end
 end

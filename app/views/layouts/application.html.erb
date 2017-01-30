@@ -20,6 +20,7 @@
 <div class="masthead container-fluid custom-container">
         <nav class="navbar navbar-light navbar-fixed-top" data-scroll-background-color="black">
           <div class="container-fluid custom-container">
+          <%= link_to image_tag("boar_logo.png"), root_path, class: "navbar-brand" %>
             <ul class="nav navbar-nav float-xs-right">
               <% if user_signed_in? %>
                 <li class="nav-item">
@@ -28,11 +29,11 @@
                     <%= current_user.email %>
                   <% end %>
                   <div class="dropdown-menu dropdown-menu-right">
-                    <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
+<!--                     <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
                       <i class="fa fa-wrench"></i>
                       <%= t(".user_settings") %>
-                    <% end %>
-                    <div role="separator" class="dropdown-divider"></div>
+                    <% end %> -->
+                    <!-- <div role="separator" class="dropdown-divider"></div> -->
                     <%= link_to destroy_user_session_path, class: "dropdown-item" do %>
                       <i class="fa fa-sign-out"></i>
                       <%= t(".logout") %>

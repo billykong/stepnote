@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @itinerary.title %>
-</p>
+<div class="col-md-12">
+	<p>
+	  <strong>Title:</strong>
+	  <%= @itinerary.title %>
+	</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @itinerary.content %>
-</p>
+	<p>
+	  <strong>Description:</strong>
+	  <%= @itinerary.content %> | <%= link_to 'Edit', edit_itinerary_path(@itinerary) %>
+	</p>	
+</div>
 
 <br>
 
@@ -19,7 +21,7 @@
 		</div>
 	<% end %>
 	<div class='col-md-4 event-list-item', id='add-event-list-item'>
-		<%= link_to 'New Event', new_event_path %>
+		<%= link_to 'New Event', new_event_path(itinerary_id: @itinerary.id) %>
 	</div>
 </div>
 
