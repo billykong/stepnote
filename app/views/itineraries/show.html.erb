@@ -5,22 +5,27 @@
   <%= @itinerary.title %>
 </p>
 
+<p>
+  <strong>Description:</strong>
+  <%= @itinerary.content %>
+</p>
+
 <br>
 
-<div class="col-xs-3 hidden-xs-down">
+<div>
 	<% @events.each do |event| %>
-  	<%= render partial: 'events/event_list_item', object: event, as: 'event'%>
-	<% end %>
-</div>
-<div class="col-xs-9">
-	<div>
-		this is the detail view
-	</div>
-
-	<div class="hidden-sm-up">
-		<% @events.each do |event| %>
+		<div class='col-md-4'>
 			<%= render partial: 'events/event_list_item', object: event, as: 'event'%>
-		<% end %>
+		</div>
+	<% end %>
+	<div class='col-md-4 event-list-item', id='add-event-list-item'>
+		<%= link_to 'New Event', new_event_path %>
 	</div>
 </div>
+
+
+
+
+
+
 
