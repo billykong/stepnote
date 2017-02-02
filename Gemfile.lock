@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/dottdogtag/guard-rspec
-  revision: 0e0eab22c49e9ac92ce8fd8de90c16342dc3f855
-  specs:
-    guard-rspec (4.6.5)
-      guard (~> 2.1)
-      guard-compat (~> 1.1)
-      rspec (~> 3.5.0.beta3, < 4.0)
-
-GIT
   remote: https://github.com/sinatra/sinatra
   revision: 9f4100a769bc62a8087a12511f26ea895e5e09c5
   specs:
@@ -289,7 +280,7 @@ GEM
       nokogiri (~> 1.5)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
-    guard (2.14.0)
+    guard (2.14.1)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
       lumberjack (~> 1.0)
@@ -299,6 +290,10 @@ GEM
       shellany (~> 0.0)
       thor (>= 0.18.1)
     guard-compat (1.2.1)
+    guard-rspec (4.7.3)
+      guard (~> 2.1)
+      guard-compat (~> 1.1)
+      rspec (>= 2.99.0, < 4.0)
     hashdiff (0.3.1)
     hashie (3.4.6)
     http_accept_language (2.1.0)
@@ -326,7 +321,7 @@ GEM
     logstash-event (1.2.02)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
-    lumberjack (1.0.10)
+    lumberjack (1.0.11)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     maxminddb (0.1.11)
@@ -544,7 +539,7 @@ DEPENDENCIES
   geocoder
   global_phone
   global_phone_dbgen
-  guard-rspec!
+  guard-rspec
   hashie
   http_accept_language
   jquery-rails
