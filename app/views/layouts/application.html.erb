@@ -17,47 +17,44 @@
 
   <body>
 
-<div class="masthead container-fluid custom-container">
-        <nav class="navbar navbar-light navbar-fixed-top" data-scroll-background-color="black">
-          <div class="container-fluid custom-container">
-          <%= link_to image_tag("boar_logo.png"), root_path, class: "navbar-brand" %>
-            <ul class="nav navbar-nav float-xs-right">
-              <% if user_signed_in? %>
-                <li class="nav-item">
-                  <%= link_to '#', class: "nav-link dropdown-toggle", data: { toggle: "dropdown"} do %>
-                    <i class="fa fa-user"></i>
-                    <%= current_user.email %>
+    <div class="masthead container-fluid custom-container">
+      <nav class="navbar navbar-light navbar-fixed-top" data-scroll-background-color="black">
+        <div class="container-fluid custom-container">
+        <%= link_to image_tag("boar_logo.png"), root_path, class: "navbar-brand" %>
+          <ul class="nav navbar-nav float-xs-right">
+            <% if user_signed_in? %>
+              <li class="nav-item">
+                <%= link_to '#', class: "nav-link dropdown-toggle", data: { toggle: "dropdown"} do %>
+                  <i class="fa fa-user"></i>
+                  <%= current_user.email %>
+                <% end %>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <%= link_to destroy_user_session_path, class: "dropdown-item" do %>
+                    <i class="fa fa-sign-out"></i>
+                    <%= t(".logout") %>
                   <% end %>
-                  <div class="dropdown-menu dropdown-menu-right">
-<!--                     <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
-                      <i class="fa fa-wrench"></i>
-                      <%= t(".user_settings") %>
-                    <% end %> -->
-                    <!-- <div role="separator" class="dropdown-divider"></div> -->
-                    <%= link_to destroy_user_session_path, class: "dropdown-item" do %>
-                      <i class="fa fa-sign-out"></i>
-                      <%= t(".logout") %>
-                    <% end %>
-                  </div>
-                </li>
-              <% else %>
-                <li class="nav-item">
-                  <%= link_to new_user_session_path, class: "nav-link" do %>
-                    <i class="fa fa-sign-in"></i>
-                    <%= t(".login") %>
-                 <% end %>
-              <% end %>
-            </ul>
-          </div>
-          
-        </nav>
-      </div>
+                </div>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to new_user_session_path, class: "nav-link" do %>
+                  <i class="fa fa-sign-in"></i>
+                  <%= t(".login") %>
+               <% end %>
+            <% end %>
+          </ul>
+        </div>
+        
+      </nav>
+    </div>
 
 
 
 
  		<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
   </body>
 </html>
