@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170130154452) do
+ActiveRecord::Schema.define(version: 20170203125545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,12 +21,16 @@ ActiveRecord::Schema.define(version: 20170130154452) do
     t.text     "content"
     t.json     "entity"
     t.datetime "schedule"
-    t.decimal  "lat",                        precision: 9, scale: 6, null: false
-    t.decimal  "lng",                        precision: 9, scale: 6, null: false
-    t.datetime "created_at",                                         null: false
-    t.datetime "updated_at",                                         null: false
-    t.string   "thumbnail_url", limit: 1024
+    t.decimal  "lat",                                 precision: 9, scale: 6, null: false
+    t.decimal  "lng",                                 precision: 9, scale: 6, null: false
+    t.datetime "created_at",                                                  null: false
+    t.datetime "updated_at",                                                  null: false
+    t.string   "thumbnail_url",          limit: 1024
     t.integer  "itinerary_id"
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
     t.index ["itinerary_id"], name: "index_events_on_itinerary_id", using: :btree
   end
 

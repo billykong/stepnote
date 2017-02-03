@@ -1,8 +1,8 @@
 <%= link_to(edit_event_path(event)) do %>
 	<div class="event-list-item">
-		<% if event.thumbnail_url != nil %>
-			<%= image_tag(event.thumbnail_url, :class => "thumbnail-image-size", :alt => "thumbnail") %>
-			<% end %>
+		<% if event.thumbnail != nil %>
+			<%= image_tag(event.thumbnail.url(:thumb), :class => "thumbnail-image-size", :alt => "thumbnail") %>
+		<% end %>
 		<div>
 			<strong><%= event.title %></strong>
 		</div>
