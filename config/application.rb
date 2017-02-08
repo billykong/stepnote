@@ -25,5 +25,7 @@ module Stepnote
 		    env.cache = ActiveSupport::Cache.lookup_store(:memory_store)
 		  end
 		end
+
+		config.paperclip_defaults = { default_url: "boar_logo.png" }
   end
 end

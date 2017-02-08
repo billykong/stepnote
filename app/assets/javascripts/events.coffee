@@ -14,12 +14,13 @@ setupMap = ->
   $mapContainer = $('#google-map-container')
   getAddress({ lat: $mapContainer.data('lat'), lng: $mapContainer.data('lng') })
   if $mapContainer.length
-    @googleMapsContainer = new App.GoogleMapsContainer($mapContainer, (e) ->
-    	@googleMapsContainer.map.panTo(e.latLng)
+    googleMapsContainer = new App.GoogleMapsContainer($mapContainer, (e) ->
+    	googleMapsContainer.map.panTo(e.latLng)
     	$('#event_lat').val(e.latLng.lat)
     	$('#event_lng').val(e.latLng.lng)
     	getAddress(e.latLng)
     	)
+    @mapContainer = googleMapsContainer.map
 
 getAddress = (latLng) ->
 	geocoder = new google.maps.Geocoder
@@ -44,10 +45,10 @@ reverseGeocodeAddress = ->
   )
 
 animateMap = (latLng) ->
-	@googleMapsContainer.map.panTo(latLng)
-	@googleMapsContainer.map.setZoom(14)
+	@mapContainer.map.panTo(latLng)
+	@mapContainer.map.setZoom(14)
 	$('#event_lat').val(latLng.lat)
 	$('#event_lng').val(latLng.lng)
-	@googleMapsContainer.marker.setPosition(latLng)
+	@mapContainer.marker.setPosition(latLng)
 
 $(document).on("turbolinks:load", ready)

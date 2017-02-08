@@ -9,11 +9,11 @@ class GoogleMapsContainer
         @initMap())
 
   initMap: () ->
-    latlng = { lat: 0, lng: 0}
-    if @$mapContainer?data('lat') && @$mapContainer?data('lng')
-      latlng = { lat: @$mapContainer.data('lat'), lng: @$mapContainer.data('lng') }
+    # latlng = { lat: 0, lng: 0}
+    # if @$mapContainer?data('lat') && @$mapContainer?data('lng')
+    #   latlng = { lat: @$mapContainer.data('lat'), lng: @$mapContainer.data('lng') }
     
-    # latlng = { lat: @$mapContainer.data('lat'), lng: @$mapContainer.data('lng') }
+    latlng = { lat: @$mapContainer.data('lat'), lng: @$mapContainer.data('lng') }
     markerTitle = @$mapContainer.data('marker-title')
     @map = new google.maps.Map(
       @$mapContainer[0],

@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = Event.new({ lat: 24.45092, lng: 118.0827})
     @itinerary = Itinerary.find(params[:itinerary_id])
   end
 
