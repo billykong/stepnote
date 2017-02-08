@@ -11,40 +11,57 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <div class="row">
+    <div class="col-md-4">
+      <% if @event.thumbnail != nil %>
+        <%= image_tag(@event.thumbnail.url(:thumb), :class => "thumbnail-image-size", :alt => "thumbnail") %>
+      <% end %>
+      <%= f.file_field :thumbnail %>
+    </div>  
+    <div class="col-md-8">
+      <%= content_tag :div, "",
+        id: "google-map-container",
+        class: "text-xs-center",
+        data: { lat: @event.lat, lng: @event.lng, marker_title: @event.title, api_key: Rails.application.secrets.google_browser_key } %>
+
+      <div class="field">
+        <%= f.label :lat %>
+        <%= f.text_field :lat %>
+        <%= f.label :lng %>
+        <%= f.text_field :lng %>
+      </div>
+      <div>
+        <span><%= label_tag(:address) %></span><span><%= text_field_tag(:address) %></span>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+  <br>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+
+      <div class="field">
+        <%= f.label :content %>
+        <%= f.text_area :content %>
+      </div>
+
+      <div class="field">
+        <%= f.label :entity %>
+        <%= f.text_field :entity %>
+      </div>
+
+      <div class="field">
+        <%= f.label :schedule %>
+        <%= f.datetime_select :schedule %>
+      </div>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :thumbnail %>
-    <%= f.file_field :thumbnail %>
-  </div>
-
-  <div class="field">
-    <%= f.label :entity %>
-    <%= f.text_field :entity %>
-  </div>
-
-  <div class="field">
-    <%= f.label :schedule %>
-    <%= f.datetime_select :schedule %>
-  </div>
-
-  <div class="field">
-    <%= f.label :lat %>
-    <%= f.text_field :lat %>
-  </div>
-
-  <div class="field">
-    <%= f.label :lng %>
-    <%= f.text_field :lng %>
-  </div>
   <% if @itinerary != nil %>
     <%= f.hidden_field :itinerary_id, :value => @itinerary.id %>
   <% end %>
