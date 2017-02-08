@@ -45,6 +45,9 @@ reverseGeocodeAddress = ->
 
 animateMap = (latLng) ->
 	@googleMapsContainer.map.panTo(latLng)
+	@googleMapsContainer.map.setZoom(14)
+	$('#event_lat').val(latLng.lat)
+	$('#event_lng').val(latLng.lng)
 	@googleMapsContainer.marker.setPosition(latLng)
 
 $(document).on("turbolinks:load", ready)
