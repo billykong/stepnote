@@ -1,8 +1,8 @@
 ready = ->
 	@App ||= {}
+	$mapContainer = $('#google-map-container')
 	$('#reverse_geocode').click ->
 		reverseGeocodeAddress()
-	$mapContainer = $('#google-map-container')
 	if google?.maps
       setupMap()
     else

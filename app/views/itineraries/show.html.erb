@@ -5,14 +5,18 @@
 	  <strong>Title:</strong>
 	  <%= @itinerary.title %>
 	</p>
-
 	<p>
 	  <strong>Description:</strong>
 	  <%= @itinerary.content %> | <%= link_to 'Edit', edit_itinerary_path(@itinerary) %>
 	</p>	
 </div>
 
-<br>
+<div class="col-md-12">
+  <%= content_tag :div, "",
+    id: "itinerary-roadmap-container",
+    class: "text-xs-center itinerary-roadmap",
+    data: { events: @events, api_key: Rails.application.secrets.google_browser_key } %>
+</div>
 
 <div>
 	<% @events.each do |event| %>

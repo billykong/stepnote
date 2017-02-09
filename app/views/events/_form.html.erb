@@ -20,6 +20,9 @@
     <div class="col-md-8">
       <div class="field">
         <%= f.datetime_select :schedule %>
+        <span>
+          <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </span>
       </div>
     </div>
   </div>
@@ -30,12 +33,19 @@
         <%= image_tag(@event.thumbnail.url(:thumb), :class => "form-thumbnail-image-size", :alt => "thumbnail") %>
       <% end %>
       <%= f.file_field :thumbnail %>
-    </div>  
+    </div>
     <div class="col-md-8">
       <%= content_tag :div, "",
         id: "google-map-container",
         class: "text-xs-center",
         data: { lat: @event.lat, lng: @event.lng, marker_title: @event.title, api_key: Rails.application.secrets.google_browser_key } %>
+      <div class="field" hidden>
+        <%= f.label :lat %>
+        <%= f.text_field :lat %>
+        <%= f.label :lng %>
+        <%= f.text_field :lng %>
+      </div>
+
       <div>
         <%= text_field_tag(:address) %>
         <!-- <input id="reverse_geocode" type="button" value="Geocode"> -->
