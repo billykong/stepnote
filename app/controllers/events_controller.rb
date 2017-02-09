@@ -34,7 +34,8 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   def update
     if @event.update(event_params)
-      redirect_to @event, notice: 'Event was successfully updated.'
+      @itinerary = Itinerary.find(@event.itinerary_id)
+      redirect_to @itinerary, notice: 'Event was successfully updated.'
     else
       render :edit
     end

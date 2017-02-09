@@ -8,6 +8,13 @@ ready = ->
     else
       $.getScript("//maps.googleapis.com/maps/api/js?key=#{$mapContainer.data('api-key')}&libraries=visualization", =>
         setupMap())
+  $("#address").on('keyup keypress', (e) ->
+	  keyCode = e.keyCode || e.which;
+	  if keyCode == 13
+	    e.preventDefault();
+	    reverseGeocodeAddress()
+	    return false;
+	)
 
 
 setupMap = ->
