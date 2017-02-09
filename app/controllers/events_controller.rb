@@ -43,8 +43,9 @@ class EventsController < ApplicationController
 
   # DELETE /events/1
   def destroy
+    @itinerary = Itinerary.find(@event.itinerary_id)
     @event.destroy
-    redirect_to events_url, notice: 'Event was successfully destroyed.'
+    redirect_to @itinerary, notice: 'Event was successfully destroyed.'
   end
 
   private
