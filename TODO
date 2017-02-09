@@ -1,5 +1,6 @@
 TODO
 
-* be able to upload image on event page
-* be able to easily select location on event page(may be using google map reserve geo coding is a good idea)
-* be able to edit itnerary title and content in-line
+* be able to see selected image right after choose file on event page
+* static map with markers on itinerary index page
+* show route on the show itinerary page
+* be able to select mode of travel to the next event on the edit event page
