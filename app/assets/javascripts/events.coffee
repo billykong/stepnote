@@ -1,20 +1,21 @@
 ready = ->
-	@App ||= {}
-	$mapContainer = $('#google-map-container')
-	$('#reverse_geocode').click ->
-		reverseGeocodeAddress()
-	if google?.maps
-      setupMap()
-    else
-      $.getScript("//maps.googleapis.com/maps/api/js?key=#{$mapContainer.data('api-key')}&libraries=visualization", =>
-        setupMap())
-  $("#address").on('keyup keypress', (e) ->
-	  keyCode = e.keyCode || e.which;
-	  if keyCode == 13
-	    e.preventDefault();
-	    reverseGeocodeAddress()
-	    return false;
-	)
+  if $('body#google-map-container').length
+  	@App ||= {}
+  	$mapContainer = $('#google-map-container')
+  	$('#reverse_geocode').click ->
+  		reverseGeocodeAddress()
+  	if google?.maps
+        setupMap()
+      else
+        $.getScript("//maps.googleapis.com/maps/api/js?key=#{$mapContainer.data('api-key')}&libraries=visualization", =>
+          setupMap())
+    $("#address").on('keyup keypress', (e) ->
+  	  keyCode = e.keyCode || e.which;
+  	  if keyCode == 13
+  	    e.preventDefault();
+  	    reverseGeocodeAddress()
+  	    return false;
+  	)
 
 
 setupMap = ->
@@ -32,7 +33,7 @@ setupMap = ->
 getAddress = (latLng) ->
 	geocoder = new google.maps.Geocoder
 	geocoder.geocode({'location': latLng}, (results, status) ->
-  	if status == 'OK' 
+  	if status == 'OK'
       if (results[1])
       	$('#address').val(results[1].formatted_address)
       else
@@ -47,7 +48,7 @@ reverseGeocodeAddress = ->
 	geocoder.geocode({'address': address}, (results, status) ->
 	  if status == 'OK'
 	    animateMap(results[0].geometry.location)
-	  else 
+	  else
 	    alert('Geocode was not successful for the following reason: ' + status);
   )
 
