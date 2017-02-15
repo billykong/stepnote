@@ -28,7 +28,7 @@ class ItineraryRoadmapContainer
 		@map.fitBounds(bounds)
 
 ready = ->
-	if $('body#itinerary-roadmap-container').length
+	if $('body.itineraries.show').length
 		$mapContainer = $('#itinerary-roadmap-container')
 		events = $('#itinerary-roadmap-container').data('events')
 		new ItineraryRoadmapContainer($mapContainer, events)

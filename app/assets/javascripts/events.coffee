@@ -1,5 +1,5 @@
 ready = ->
-  if $('body#google-map-container').length
+  if $('body.events.edit').length || $('body.events.new').length
   	@App ||= {}
   	$mapContainer = $('#google-map-container')
   	$('#reverse_geocode').click ->

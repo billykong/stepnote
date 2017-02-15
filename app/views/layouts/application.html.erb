@@ -16,7 +16,9 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=#{Rails.application.secrets.google_browser_key}&libraries=visualization"></script>
   </head>
 
-  <body>
+  <%= content_tag :body,
+    class: "#{params[:controller].parameterize} #{params[:action].parameterize}",
+    data: @_body_data do  %>
 
     <div class="masthead container-fluid custom-container">
       <nav class="navbar navbar-light navbar-fixed-top" data-scroll-background-color="black">
@@ -45,7 +47,7 @@
             <% end %>
           </ul>
         </div>
-        
+
       </nav>
     </div>
 
@@ -57,5 +59,6 @@
     <div class="container-fluid">
       <%= yield %>
     </div>
-  </body>
+  <!-- </body> -->
+  <% end %>
 </html>
