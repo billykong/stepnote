@@ -10,7 +10,7 @@ class Event < ApplicationRecord
                   url: "/event_images/:hash.:extension",
                   hash_secret: Rails.application.secrets.paperclip_image_hash_secret
 
-	validates_attachment :thumbnail, presence: true,
+	validates_attachment :thumbnail,
                      content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] },
                      size: { in: 0..5000.kilobytes }
 

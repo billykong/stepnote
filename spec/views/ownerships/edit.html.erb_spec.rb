@@ -1,9 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "ownerships/edit", type: :view do
+  let(:user) { create(:user) }
+  let(:itinerary) { create(:itinerary) }
+
   before(:each) do
     @ownership = assign(:ownership, Ownership.create!(
-      :role => "MyString"
+      :role => "owner",
+      :user_id => user.id,
+      :itinerary_id => itinerary.id
     ))
   end
 

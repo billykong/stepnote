@@ -5,7 +5,7 @@ RSpec.describe "events/new", type: :view do
     assign(:event, Event.new(
       :title => "MyString",
       :content => "MyText",
-      :entity => "",
+      :entity => "{}",
       :lat => "9.99",
       :lng => "9.99"
     ))
@@ -19,8 +19,6 @@ RSpec.describe "events/new", type: :view do
       assert_select "input#event_title[name=?]", "event[title]"
 
       assert_select "textarea#event_content[name=?]", "event[content]"
-
-      assert_select "input#event_entity[name=?]", "event[entity]"
 
       assert_select "input#event_lat[name=?]", "event[lat]"
 

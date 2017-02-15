@@ -1,13 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe "events/edit", type: :view do
+  let(:itinerary) { create(:itinerary) }
+
   before(:each) do
     @event = assign(:event, Event.create!(
       :title => "MyString",
       :content => "MyText",
-      :entity => "",
       :lat => "9.99",
-      :lng => "9.99"
+      :lng => "9.99",
+      :itinerary => itinerary
     ))
   end
 
@@ -19,8 +21,6 @@ RSpec.describe "events/edit", type: :view do
       assert_select "input#event_title[name=?]", "event[title]"
 
       assert_select "textarea#event_content[name=?]", "event[content]"
-
-      assert_select "input#event_entity[name=?]", "event[entity]"
 
       assert_select "input#event_lat[name=?]", "event[lat]"
 

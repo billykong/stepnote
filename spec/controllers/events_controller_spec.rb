@@ -19,6 +19,10 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe EventsController, type: :controller do
+  let(:user) { create(:user) }
+  let(:itinerary) { create(:itinerary) }
+  let(:event) { create(:event, itinerary: itinerary) }
+  let(:ownership) { create(:ownership, itinerary: itinerary, user: user)}
 
   # This should return the minimal set of attributes required to create a valid
   # Event. As you add validations to Event, be sure to
@@ -35,6 +39,10 @@ RSpec.describe EventsController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # EventsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
+
+  before do
+    login_user(user)
+  end
 
   describe "GET #index" do
     it "assigns all events as @events" do
@@ -54,7 +62,7 @@ RSpec.describe EventsController, type: :controller do
 
   describe "GET #new" do
     it "assigns a new event as @event" do
-      get :new, params: {}, session: valid_session
+      get :new, params: { itinerary_id: itinerary.id }, session: valid_session
       expect(assigns(:event)).to be_a_new(Event)
     end
   end

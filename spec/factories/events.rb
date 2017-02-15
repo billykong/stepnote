@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :event do
-    title "MyString"
+    title "owner"
     content "MyText"
     entity ""
     schedule "2017-01-18 17:17:47"

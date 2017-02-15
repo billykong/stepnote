@@ -19,7 +19,9 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe ItinerariesController, type: :controller do
-
+  let(:user) { create(:user) }
+  let(:itinerary) { create(:itinerary) }
+  let(:ownership) { create(:ownership, itinerary: itinerary, user: user)}
   # This should return the minimal set of attributes required to create a valid
   # Itinerary. As you add validations to Itinerary, be sure to
   # adjust the attributes here as well.
@@ -35,6 +37,10 @@ RSpec.describe ItinerariesController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # ItinerariesController. Be sure to keep this updated too.
   let(:valid_session) { {} }
+
+  before do
+    login_user(user)
+  end
 
   describe "GET #index" do
     it "assigns all itineraries as @itineraries" do

@@ -1,13 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe "events/show", type: :view do
+  let(:itinerary) { create(:itinerary) }
+
   before(:each) do
     @event = assign(:event, Event.create!(
       :title => "Title",
       :content => "MyText",
       :entity => "",
       :lat => "9.99",
-      :lng => "9.99"
+      :lng => "9.99",
+      :itinerary => itinerary
     ))
   end
 
